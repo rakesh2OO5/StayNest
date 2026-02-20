@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayNest</title>
+    <style>
+        img{
+            height: 10rem;
+            width: 10rem;
+        }
+        h1{
+            text-align: center;
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Property Listings</h1>
+    <hr/>
+    <form action="/listings/new" method="get">
+        <button type="submit">Create new listing</button>
+    </form>
+    <hr/>
+    <% for(listing of allListings) {%>
+        <p>Title :<a href="/listings/<%= listing._id %>"> <%= listing.title  %></a></p>
+        <p>Description : <%= listing.description %></p>
+        <p>Image : </p>
+        <img src="<%= listing.image %>" alt="property-image"/>
+        <p>Price : <%= listing.price %></p>
+        <p>Location : <%= listing.location %></p>
+        <p>Country : <%= listing.country %></p>
+    <hr/>
+    <% } %>
+</body>
+</html>
