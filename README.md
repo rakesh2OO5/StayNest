@@ -41,13 +41,20 @@ This project focuses on building a scalable backend architecture while progressi
 ## 📂 Project Structure
 
 
-StayNest
+StayNest/
 │
-├── models
-├── views
-│ └── listings
-├── public
-├── init
+├── models/
+│ └── listing.js
+│
+├── views/
+│ └── listings/
+│ ├── index.ejs
+│ ├── new.ejs
+│ ├── edit.ejs
+│ └── show.ejs
+│
+├── public/
+├── init/
 ├── app.js
 └── package.json
 
@@ -66,10 +73,10 @@ nodemon app.js
 
 App runs at:
 http://localhost:5000
-
+```
 ---
 
-🎯 Future Improvements
+## 🎯 Future Improvements
 
 - User authentication & authorization
 - Image upload with Cloudinary
@@ -81,17 +88,17 @@ http://localhost:5000
 - Responsive UI
 - Deployment
 
-💡 Learning Goals
+## 💡 Learning Goals
 
 This project is focused on:
-RESTful API design
-MVC architecture
-Database modeling
-Backend scalability
-Git workflow & version control
-Product-oriented development
+- RESTful API design
+- MVC architecture
+- Database modeling
+- Backend scalability
+- Git workflow & version control
+- Product-oriented development
 
-👤 Author
+## 👤 Author
 Rakesh D
 
 
