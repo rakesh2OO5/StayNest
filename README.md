@@ -67,6 +67,8 @@ nodemon app.js
 App runs at:
 http://localhost:5000
 
+---
+
 🎯 Future Improvements
 
 - User authentication & authorization
