@@ -37,8 +37,8 @@ This project focuses on building a scalable backend architecture while progressi
 - Nodemon
 
 ---
-```
 ## 📂 Project Structure
+```
 
 
 StayNest/
