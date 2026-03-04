@@ -10,8 +10,8 @@ const listingSchema = new mongoose.Schema({
     },
     image :{
         type: String,
-        default : "https://hips.hearstapps.com/hmg-prod/images/edc080123reddkaihoi-009-645aba4daf6e1.jpg?crop=0.919749189917098xw%3A1xh%3Bcenter%2Ctop&resize=1200%3A%2A",
-        set: (v) => v==="" ? "default" : v,
+        default : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREVWtZBC4l-ZcE3xvnRNel3zz-6nPWBlZgEw&s",
+        set: (v) => v==="" ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREVWtZBC4l-ZcE3xvnRNel3zz-6nPWBlZgEw&s" : v,
     },
     price:{
         type : Number

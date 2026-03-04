@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>StayNest</title>
-</head>
-<body>
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-5">
+    <div class="col-8 offset-2">
+        <h1>Welcome to StayNest 🏡</h1>
+        <p>Find your perfect stay anywhere in the world</p>
+        <div class="row">
+            <div class="col-4">
+                <a href="/listings" class="btn btn-outline-success">Explore Listings</a>
+            </div>
+            <div class="col-4">
+                <a href="/listings/new" class="btn btn-outline-primary">Create Listing</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <h1>Welcome to StayNest 🏡</h1>
-
-    <p>Find your perfect stay anywhere in the world</p>
-
-    <a href="/listings">Explore Listings</a>
-    <br><br>
-    <a href="/listings/new">Create Listing</a>
-
-</body>
-</html>
