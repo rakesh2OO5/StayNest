@@ -18,19 +18,19 @@ The project focuses on building a scalable backend architecture with clean error
 - Navbar & footer components
 
 ## 🛠 Tech Stack
-# Backend
+### Backend
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
 - Joi (validation)
 
-# Frontend
+### Frontend
 - EJS templating
 - CSS
 - Vanilla JavaScript
 
-# Tools
+### Tools
 - Git & GitHub
 - Nodemon
 
@@ -99,7 +99,7 @@ http://localhost:5000
 
 ## 💡 Learning Goals
 
-# This project is focused on:
+### This project is focused on:
 - RESTful API design
 - MVC architecture
 - Middleware design patterns
