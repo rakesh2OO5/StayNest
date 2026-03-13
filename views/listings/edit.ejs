@@ -5,35 +5,35 @@
         <form method="post" action="/listings/<%= editListing._id %>?_method=PUT" class="needs-validation" novalidate>
             <div class="mb-3">
                 <label for="title" class="form-label">Title :</label>
-                <input class="form-control" type="text" name="title" id="title" value="<%= editListing.title  %>"  required/>
+                <input class="form-control" type="text" name="listing[title]" id="title" value="<%= editListing.title  %>"  required/>
                 <div class="valid-feedback">Title looks good!</div>
                 <div class="invalid-feedback">Title cannot be empty!</div>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description :</label>
-                <textarea class="form-control" name="description" id="description" required><%= editListing.description  %></textarea>
+                <textarea class="form-control" name="listing[description]" id="description" required><%= editListing.description  %></textarea>
                 <div class="invalid-feedback">Description cannot be empty!</div>
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image :</label>
-                <input class="form-control" type="text" name="image" value="<%= editListing.image  %>" id="image" required/>
+                <input class="form-control" type="text" name="listing[image]" value="<%= editListing.image  %>" id="image" required/>
                 <div class="invalid-feedback">Please enter a valid link for the image!</div>
             </div>
             <div class="row">
                 <div class="mb-3 col-md-4">
                     <label for="price" class="form-label">Price :</label>
-                    <input class="form-control" type="number" name="price" id="price" value="<%= editListing.price%>" required/>
+                    <input class="form-control" type="number" name="listing[price]" id="price" value="<%= editListing.price%>" required/>
                     <div class="invalid-feedback">Price cannot be empty!</div>
                 </div>
                 <div class="mb-3 col-md-8">
                     <label for="country" class="form-label">Country :</label>
-                    <input class="form-control" type="text" name="country" id="country" value="<%= editListing.country %>" required/>
+                    <input class="form-control" type="text" name="listing[country]" id="country" value="<%= editListing.country %>" required/>
                     <div class="invalid-feedback">Country name cannot be empty!</div>
                 </div>
             </div>
             <div class ="mb-3">
                 <label for="location" class="form-label">Location :</label>
-                <input class="form-control" type="text" name="location" id="location" value="<%= editListing.location %>" required/>
+                <input class="form-control" type="text" id="location" name="listing[location]" value="<%= editListing.location %>" required/>
                 <div class="invalid-feedback">Location cannot be empty!</div>
             </div>
             <div class="mb-3 mt-3">

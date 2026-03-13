@@ -24,6 +24,7 @@ async function main(){
 }
 
 const validateListing = (req,res,next) =>{
+    console.log(req.body); 
     let {error} = listingSchema.validate(req.body);
     if(error){
         let errMsg = error.details.map((el)=> el.message).join(",");
@@ -59,16 +60,8 @@ app.get("/listings/new",(req,res)=>{
 app.post(
     "/listings",
     validateListing,
-    wrapAsync(async (req,res,next)=>{
-        let {title,description,image,price,location,country} = req.body;
-        let newListing = new Listing({
-            title : title ,
-            description:description,
-            image:image,
-            price:price,
-            location:location,
-            country:country
-        });
+    wrapAsync(async (req,res)=>{
+        let newListing = new Listing(req.body.listing);
         await newListing.save();
         res.redirect("/listings");
     })
@@ -100,15 +93,7 @@ app.put(
     validateListing,
     wrapAsync(async (req,res)=>{
         let {id} = req.params;
-        let {title,description,image,price,location,country} = req.body;
-        let editedListing = await Listing.findByIdAndUpdate(id,{
-            title:title,
-            description:description,
-            image:image,
-            price:price,
-            location:location,
-            country:country,
-        });
+        await Listing.findByIdAndUpdate(id, req.body.listing);
         res.redirect(`/listings/${id}`);
     })
 );
