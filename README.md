@@ -1,45 +1,67 @@
 ## 🏡 StayNest
+
 StayNest is a full-stack property renting platform that allows users to discover, create, and manage accommodation listings with ease.
-The project focuses on building a scalable backend architecture with clean error handling, validation, and reusable UI components while progressively enhancing product features.
+
+The project focuses on building a scalable backend architecture with authentication, authorization, validation, and reusable UI components while progressively enhancing product features.
 
 ## 🚀 Features
-- Create property listings
-- View all listings
-- Edit listing details
-- Delete listings
+### 🏠 Listings
+- Create, edit, and delete property listings
+- View all listings and individual listing details
 - Image URL support
 - RESTful routing architecture
-- MongoDB data persistence
-- Server-side rendering with EJS
+### 🔐 Authentication
+- User signup, login, and logout using Passport.js
+- Session-based authentication
+- Secure password handling
+### 🛡 Authorization
+- Only listing owners can edit or delete their listings
+- Protected routes using middleware
+- User-based access control
+### ⭐ Reviews System
+- Add reviews to listings
+- Delete reviews
+- Reviews linked to users and listings
+### 💬 Flash Messages
+- Success and error alerts for user actions
+- Improved UX with real-time feedback
+### ⚙️ Backend Features
 - Joi schema validation for request data
 - Centralized error handling middleware
 - Async route wrapper for cleaner controllers
+### 🎨 UI & Layout
 - Reusable EJS boilerplate layout
-- Navbar & footer components
-
+- Dynamic navbar (login/logout state)
+- Header & footer components
+- Styled responsive pages
 ## 🛠 Tech Stack
 ### Backend
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- Joi (validation)
-
+- Passport.js (Authentication)
+- Joi (Validation)
 ### Frontend
 - EJS templating
 - CSS
 - Vanilla JavaScript
-
 ### Tools
 - Git & GitHub
 - Nodemon
-
 ## 📂 Project Structure
 ```
 StayNest/
 │
 ├── models/
-│   └── listing.js
+│   ├── listing.js
+│   ├── review.js
+│   └── user.js
+│
+├── routes/
+│   ├── listing.js
+│   ├── review.js
+│   └── user.js
 │
 ├── utils/
 │   ├── wrapAsync.js
@@ -47,65 +69,43 @@ StayNest/
 │
 ├── views/
 │   ├── listings/
-│   │   ├── index.ejs
-│   │   ├── new.ejs
-│   │   ├── edit.ejs
-│   │   └── show.ejs
-│   │
+│   ├── users/
 │   ├── includes/
-│   │   ├── navbar.ejs
-│   │   └── footer.ejs
-│   │
 │   ├── layouts/
-│   │   └── boilerplate.ejs
-│   │
 │   └── error.ejs
 │
 ├── public/
-│   ├── css/
-│   ├── js/
-│   └── assets/
-│
-├── init/
+├── middleware.js
 ├── schema.js
 ├── app.js
 └── package.json
 ```
-
 ## ⚙️ Installation & Setup
 ```
 git clone https://github.com/rakesh2OO5/StayNest.git
 cd StayNest
 npm install
-
-Start the server:
 nodemon app.js
 
 Application runs at:
 http://localhost:5000
+
 ```
-
 ## 🎯 Future Improvements
-
-- User authentication & authorization
 - Image upload with Cloudinary
-- Reviews & ratings system
 - Wishlist functionality
 - Booking workflow
-- Map-based location discovery
+- Map-based location integration
 - Advanced search & filtering
-- Responsive UI
-- Deployment
-
+- Responsive UI improvements
+- Deployment (Render / Railway)
 ## 💡 Learning Goals
-
-### This project is focused on:
 - RESTful API design
 - MVC architecture
 - Middleware design patterns
-- Database modeling with MongoDB
+- Authentication & authorization
+- Database relationships (one-to-many)
 - Backend error handling strategies
-- Git workflow & version control
 - Building production-style Node.js apps
 
 ## 👤 Author
