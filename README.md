@@ -53,6 +53,11 @@ The project focuses on building a scalable backend architecture with authenticat
 ```
 StayNest/
 │
+├── controllers/
+│   ├── listing.js
+│   ├── review.js
+│   └── user.js
+│
 ├── models/
 │   ├── listing.js
 │   ├── review.js
