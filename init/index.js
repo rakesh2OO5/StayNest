@@ -9,6 +9,7 @@ main().then(()=>{console.log("Connected to StayNest");}).catch((err)=>{console.l
 
 const initDB = async () =>{
     await Listing.deleteMany({});
+    initData.data = initData.data.map((obj) =>({...obj , owner : "69c95a471855f6fd514650e0"}));
     await Listing.insertMany(initData.data).then(()=>{console.log("DB initialized");}).catch((err)=>{console.log(err);});
 };
 
