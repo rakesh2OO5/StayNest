@@ -54,14 +54,11 @@ app.use((req,res,next)=>{
     next();
 });
 
+const dbUrl = process.env.ATLAS_DB_URL;
 main().then(()=>{console.log("Connected to MongoDB");}).catch((err)=>{console.log(err);});
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/staynest");
+    await mongoose.connect(dbUrl);
 }
-
-app.get("/",(req,res)=>{
-    res.render("home.ejs");
-});
 
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
