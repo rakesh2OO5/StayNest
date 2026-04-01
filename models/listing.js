@@ -10,9 +10,8 @@ const listingSchema = new mongoose.Schema({
         type : String
     },
     image :{
-        type: String,
-        default : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREVWtZBC4l-ZcE3xvnRNel3zz-6nPWBlZgEw&s",
-        set: (v) => v==="" ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREVWtZBC4l-ZcE3xvnRNel3zz-6nPWBlZgEw&s" : v,
+        url : String,
+        filename : String,
     },
     price:{
         type : Number
@@ -32,7 +31,18 @@ const listingSchema = new mongoose.Schema({
     owner : {
         type : Schema.Types.ObjectId,
         ref:"User",
-    }
+    },
+    geometry: {
+        type: {
+            type: String,
+            enum: ["Point"],
+            required: true
+        },
+        coordinates: {
+            type: [Number], // [lng, lat]
+            required: true
+        }
+    },
 });
 
 listingSchema.post("findOneAndDelete",async(listing)=>{

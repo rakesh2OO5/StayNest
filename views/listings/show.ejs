@@ -6,7 +6,7 @@
         </h3>
     </div>
     <div class="card listing-card col-6 offset-3">
-        <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing-img"></img>
+        <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing-img"></img>
         <div class="card-body">
             <p class="card-text">
                 Owned by  <%= listing.owner.username %>
@@ -64,6 +64,7 @@
             <button class="btn btn-outline-dark mt-3 mb-3">Submit</button>
         </form>
         <% } %>
+        <% if(listing.reviews.length > 0) { %>
         <div>
             <hr>
             <h4>All reviews</h4>
@@ -90,4 +91,16 @@
                 <% } %>
             </div>
         </div>
+        <% } %>
     </div>
+    <div class="col-8 offset-3 mb-3">
+        <hr/>
+        <h3>Where You'll Be</h3>
+        <div 
+            id="map" 
+            data-coordinates='<%- JSON.stringify(listing.geometry.coordinates) %>'
+            data-token="<%= mapToken %>"
+            style="height: 400px; width: 100%; border-radius: 10px;">
+        </div>
+    </div>
+<script src="/js/map.js"></script>

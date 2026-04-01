@@ -91,3 +91,8 @@ body{
 .btns{
     display: flex;
 }
+
+/* MAP */
+#map {
+  margin-top: 10px;
+}
