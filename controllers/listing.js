@@ -66,7 +66,14 @@ module.exports.renderEditForm = async (req,res)=>{
         return res.redirect("/listings");
     }
     let originalImageUrl = editListing.image.url;
-    originalImageUrl = originalImageUrl.replace("/upload","/upload/w_250/e_blur:100");
+    if (originalImageUrl.includes("res.cloudinary.com")) {
+        originalImageUrl = originalImageUrl.replace(
+            "/upload/",
+            "/upload/w_250,e_blur:100/"
+    );
+    } else if (originalImageUrl.includes("unsplash.com")) {
+        originalImageUrl += "&w=250&h=250&fit=crop&auto=format&q=80&blur=50";
+    }
     return res.render("listings/edit.ejs",{editListing,originalImageUrl});
 };
 
