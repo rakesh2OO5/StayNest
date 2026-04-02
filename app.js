@@ -1,7 +1,4 @@
-if(process.env.NODE_ENV != "production"){
-    require("dotenv").config();
-}
-
+require("dotenv").config();
 const express = require("express");
 const app =  express();
 const path = require("path");
@@ -14,13 +11,24 @@ const listingRouter = require("./routes/listing.js");
 const userRouter = require("./routes/user.js");
 const reviewRouter = require("./routes/review.js");
 const session = require("express-session");
+const MongoStore = require("connect-mongo"); 
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
+const store = MongoStore.create({
+    mongoUrl : process.env.ATLAS_DB_URL,
+    touchAfter : 24 * 3600 ,
+});
+
+store.on("error",(err)=>{
+    console.log("Error in MongoStore ",err);
+});
+
 const sessionOptions = {
-    secret : "mySuperSecretCode",
+    store,
+    secret : process.env.SECRET,
     resave : false ,
     saveUninitialized:true,
     cookie :{
@@ -29,6 +37,8 @@ const sessionOptions = {
         httpOnly : true
     }
 };
+
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -50,7 +60,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success") ;
     res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
+    res.locals.currUser = req.user || null;
     next();
 });
 
@@ -59,16 +69,18 @@ main().then(()=>{console.log("Connected to MongoDB");}).catch((err)=>{console.lo
 async function main(){
     await mongoose.connect(dbUrl);
 }
-
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
 app.use((req,res,next)=>{
-    next(new ExpressError(404,"Page Not Found"));
+    return next(new ExpressError(404,"Page Not Found"));
 });  
 
 app.use((err,req,res,next)=>{
+    if(res.headersSent){
+        return next(err);
+    }
     let {status = 500 , message = "Something Went Wrong"} = err;
     res.status(status).render("error.ejs",{message});
 });

@@ -3,11 +3,11 @@ const axios = require("axios");
 
 module.exports.index = async (req,res)=>{
     const allListings = await Listing.find({});
-    res.render("listings/index.ejs",{allListings});
+    return res.render("listings/index.ejs",{allListings});
 };
 
 module.exports.renderNewForm = (req,res)=>{
-    res.render("listings/new.ejs");
+    return res.render("listings/new.ejs");
 };
 
 module.exports.createListing = async (req, res) => {
@@ -33,7 +33,7 @@ module.exports.createListing = async (req, res) => {
         };
         await newListing.save();
         req.flash("success", "New Listing Created!");
-        res.redirect("/listings");
+        return res.redirect("/listings");
     }catch(err){
         console.error(err);
         req.flash("error", "Geocoding failed. Try again.");
@@ -55,7 +55,7 @@ module.exports.showListing = async (req,res)=>{
         req.flash("error","Requested listing does not exist!");
         return res.redirect("/listings");
     }
-    res.render("listings/show.ejs",{listing,mapToken : process.env.MAP_TOKEN});
+    return res.render("listings/show.ejs",{listing,mapToken : process.env.MAP_TOKEN});
 };
 
 module.exports.renderEditForm = async (req,res)=>{
@@ -67,7 +67,7 @@ module.exports.renderEditForm = async (req,res)=>{
     }
     let originalImageUrl = editListing.image.url;
     originalImageUrl = originalImageUrl.replace("/upload","/upload/w_250/e_blur:100");
-    res.render("listings/edit.ejs",{editListing,originalImageUrl});
+    return res.render("listings/edit.ejs",{editListing,originalImageUrl});
 };
 
 module.exports.updateListing = async (req,res)=>{
@@ -92,12 +92,12 @@ module.exports.updateListing = async (req,res)=>{
         await listing.save();
     }
     req.flash("success","Listing Updated!");
-    res.redirect(`/listings/${id}`);
+    return res.redirect(`/listings/${id}`);
 };
 
 module.exports.destroyListing = async (req,res)=>{
     let {id}= req.params;
     await Listing.findByIdAndDelete(id);
     req.flash("success","Listing Deleted!");
-    res.redirect("/listings");
+    return res.redirect("/listings");
 };
