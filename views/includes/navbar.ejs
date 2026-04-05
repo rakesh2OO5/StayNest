@@ -12,7 +12,7 @@
       </div>
       <div class="navbar-nav ms-auto">
         <a class="nav-link" id="addListing-btn" href="/listings/new">Nest your place 🐣</a>
-        <% if(!locals.currUser) { %>
+        <% if(!currUser) { %>
         <a class="nav-link" href="/signup"><b>Signup</b></a>
         <a class="nav-link" href="/login"><b>Login</b></a>
         <% } else { %>
