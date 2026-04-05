@@ -34,12 +34,16 @@ module.exports.login = async (req, res) => {
     res.redirect(redirectUrl);
 };
 
-module.exports.logout = (req,res,next)=>{
-    req.logout((err)=>{
-      if(err){
-        return next(err);
-      }
-      req.flash("success","You are successfully logged-out!");
-      res.redirect("/listings");
+module.exports.logout = (req, res, next) => {
+    req.logout(function(err) {
+        if (err) {
+            return next(err);
+        }
+
+        req.session.destroy(() => {
+            res.clearCookie("connect.sid");
+            req.flash("success", "You are successfully logged out!");
+            res.redirect("/listings");
+        });
     });
 };
