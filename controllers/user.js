@@ -43,7 +43,11 @@ module.exports.logout = (req, res, next) => {
         req.flash("success", "You are successfully logged out!");
 
         req.session.destroy(() => {
-            res.clearCookie("connect.sid");
+            res.clearCookie("connect.sid", {
+                path: "/",
+                secure: true,
+                sameSite: "none"
+            });
             res.redirect("/listings");
         });
     });
