@@ -40,9 +40,10 @@ module.exports.logout = (req, res, next) => {
             return next(err);
         }
 
+        req.flash("success", "You are successfully logged out!");
+
         req.session.destroy(() => {
             res.clearCookie("connect.sid");
-            req.flash("success", "You are successfully logged out!");
             res.redirect("/listings");
         });
     });
