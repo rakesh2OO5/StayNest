@@ -26,18 +26,19 @@ store.on("error",(err)=>{
     console.log("Error in MongoStore ",err);
 });
 
-app.set("trust proxy", 1); // 🔥 VERY IMPORTANT (Render fix)
+app.set("trust proxy", 1);
 
 const sessionOptions = {
     store,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false, // ✅ FIXED
+    saveUninitialized: false, 
     cookie: {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: true // 🔥 REQUIRED FOR DEPLOYMENT
+        secure: true,
+        sameSite : "none"
     }
 };
 
