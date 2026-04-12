@@ -75,8 +75,8 @@ The project focuses on building a scalable backend architecture with authenticat
 - MapTiler (Map API)
 - Cloudinary (Image storage & management)
 
-
 ## 📂 Project Structure
+- Project follows MVC architecture with modular routing and utility-based error handling.
 ```
 StayNest/
 │
@@ -95,10 +95,6 @@ StayNest/
 │   ├── review.js
 │   └── user.js
 │
-├── utils/
-│   ├── wrapAsync.js
-│   └── ExpressError.js
-│
 ├── views/
 │   ├── listings/
 │   ├── users/
@@ -107,10 +103,24 @@ StayNest/
 │   └── error.ejs
 │
 ├── public/
+│   ├── assets/
+│   ├── css/
+│   └── js/
+│
+├── utils/
+│   ├── wrapAsync.js
+│   └── ExpressError.js
+│
+├── init/
+│   ├── data.js
+│   └── index.js
+│
 ├── middleware.js
+├── cloudConfig.js
 ├── schema.js
 ├── app.js
-└── package.json
+├── package.json
+└── .gitignore
 ```
 ## ⚙️ Installation & Setup
 ```
