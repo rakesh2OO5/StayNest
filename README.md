@@ -11,7 +11,6 @@ The project focuses on building a scalable backend architecture with authenticat
 ### 🏠 Listings
 - Create, edit, and delete property listings
 - View all listings and individual listing details
-- Image URL support
 - RESTful routing architecture
 
 ### 🔐 Authentication
@@ -28,6 +27,10 @@ The project focuses on building a scalable backend architecture with authenticat
 - Add and delete reviews for listings
 - Star-based rating system using Starability
 - Reviews associated with users and listings
+
+### 🖼️ Image Management
+- Upload and store listing images using Cloudinary
+- Efficient media handling for production-style applications
 
 ### 🗺️ Map Integration
 - Display listing locations using interactive maps
@@ -70,6 +73,7 @@ The project focuses on building a scalable backend architecture with authenticat
 - Git & GitHub
 - Nodemon
 - MapTiler (Map API)
+- Cloudinary (Image storage & management)
 
 
 ## 📂 Project Structure
