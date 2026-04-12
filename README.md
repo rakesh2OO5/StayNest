@@ -1,11 +1,11 @@
 ## 🏡 StayNest
 
-StayNest is a full-stack property renting platform that allows users to discover, create, and manage accommodation listings with ease.
+StayNest is a full-stack property renting platform that allows users to discover, create, and manage accommodation listings.
 
-The project focuses on building a scalable backend architecture with authentication, authorization, validation, map integration, and reusable UI components — simulating a real-world rental platform.
+Built as a backend-focused project, it simulates production-level rental platforms with secure authentication, media handling, geolocation, and scalable architecture.
 
-### Live On Render :
-- https://staynest-elr9.onrender.com
+## 🌐 Live Demo
+https://staynest-elr9.onrender.com
 
 ## 🚀 Features
 ### 🏠 Listings
