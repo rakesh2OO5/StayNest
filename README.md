@@ -2,7 +2,10 @@
 
 StayNest is a full-stack property renting platform that allows users to discover, create, and manage accommodation listings with ease.
 
-The project focuses on building a scalable backend architecture with authentication, authorization, validation, and reusable UI components while progressively enhancing product features.
+The project focuses on building a scalable backend architecture with authentication, authorization, validation, map integration, and reusable UI components — simulating a real-world rental platform.
+
+### Live On Render :
+- https://staynest-elr9.onrender.com
 
 ## 🚀 Features
 ### 🏠 Listings
@@ -10,30 +13,43 @@ The project focuses on building a scalable backend architecture with authenticat
 - View all listings and individual listing details
 - Image URL support
 - RESTful routing architecture
+
 ### 🔐 Authentication
 - User signup, login, and logout using Passport.js
 - Session-based authentication
 - Secure password handling
+
 ### 🛡 Authorization
 - Only listing owners can edit or delete their listings
 - Protected routes using middleware
 - User-based access control
+
 ### ⭐ Reviews System
-- Add reviews to listings
-- Delete reviews
-- Reviews linked to users and listings
+- Add and delete reviews for listings
+- Star-based rating system using Starability
+- Reviews associated with users and listings
+
+### 🗺️ Map Integration
+- Display listing locations using interactive maps
+- Integrated Leaflet with MapTiler for geolocation visualization
+
+### 🎨 UI & Layout
+- Reusable EJS boilerplate layout
+- Dynamic navbar based on authentication state
+- Flash messages for user feedback
+- Clean and responsive UI design
+
 ### 💬 Flash Messages
 - Success and error alerts for user actions
 - Improved UX with real-time feedback
+
 ### ⚙️ Backend Features
-- Joi schema validation for request data
-- Centralized error handling middleware
-- Async route wrapper for cleaner controllers
-### 🎨 UI & Layout
-- Reusable EJS boilerplate layout
-- Dynamic navbar (login/logout state)
-- Header & footer components
-- Styled responsive pages
+- Joi schema validation for robust data validation
+- Centralized error handling using custom ExpressError class
+- Async error handling using wrapAsync utility
+- Middleware-based authorization and route protection
+- Clean MVC architecture for scalability
+
 ## 🛠 Tech Stack
 ### Backend
 - Node.js
@@ -42,13 +58,20 @@ The project focuses on building a scalable backend architecture with authenticat
 - Mongoose
 - Passport.js (Authentication)
 - Joi (Validation)
+
 ### Frontend
 - EJS templating
 - CSS
 - Vanilla JavaScript
-### Tools
+- Leaflet (Maps)
+- Starability (Ratings UI)
+
+### Tools & Services
 - Git & GitHub
 - Nodemon
+- MapTiler (Map API)
+
+
 ## 📂 Project Structure
 ```
 StayNest/
@@ -96,22 +119,16 @@ Application runs at:
 http://localhost:5000
 
 ```
-## 🎯 Future Improvements
-- Image upload with Cloudinary
-- Wishlist functionality
-- Booking workflow
-- Map-based location integration
-- Advanced search & filtering
-- Responsive UI improvements
-- Deployment (Render / Railway)
-## 💡 Learning Goals
+
+## 🧠 Key Concepts Implemented
 - RESTful API design
 - MVC architecture
-- Middleware design patterns
-- Authentication & authorization
+- Middleware-based design patterns
+- Authentication & authorization (Passport.js)
 - Database relationships (one-to-many)
-- Backend error handling strategies
-- Building production-style Node.js apps
+- Backend validation using Joi
+- Centralized error handling strategies
+- Building production-style Node.js applications
 
 ## 👤 Author
 Rakesh D
